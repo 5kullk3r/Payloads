@@ -1,3 +1,165 @@
+# Reverse Shells — Quick Reference
+
+A **reverse shell** is a remote command shell where the target system initiates a connection back to the operator's machine. Instead of the operator directly connecting *into* the target, the target establishes the outbound connection.
+
+This technique is commonly encountered during the **post-exploitation phase** of CTFs and authorized penetration tests, particularly after obtaining some form of code execution on the target.
+
+---
+
+## What Is a Reverse Shell?
+
+```text
+                  OUTBOUND CONNECTION
+        ┌──────────────────────────────────┐
+        │                                  │
+        ▼                                  │
+┌───────────────┐                  ┌────────────────┐
+│    TARGET     │ ───────────────► │    OPERATOR    │
+│               │                  │                │
+│ Compromised   │                  │ Listener       │
+│ application   │                  │                │
+│ / host        │                  │ $ nc -lvnp ... │
+└───────────────┘                  └────────────────┘
+        │                                  │
+        │                                  │
+        └────── Remote command shell ──────┘
+```
+
+### Normal Connection vs Reverse Shell
+
+```text
+NORMAL / BIND SHELL
+
+Operator ───────────────► Target
+         Incoming connection
+
+
+REVERSE SHELL
+
+Target ─────────────────► Operator
+        Outbound connection
+```
+
+
+## Typical Attack Flow
+
+```text
+┌──────────────────────┐
+│  1. Initial Access   │
+│                      │
+│ Vulnerability /      │
+│ Code Execution       │
+└──────────┬───────────┘
+           │
+           ▼
+┌──────────────────────┐
+│  2. Prepare Listener │
+│                      │
+│ Operator waits for   │
+│ an incoming session  │
+└──────────┬───────────┘
+           │
+           ▼
+┌──────────────────────┐
+│  3. Execute Payload  │
+│                      │
+│ Target initiates an  │
+│ outbound connection  │
+└──────────┬───────────┘
+           │
+           ▼
+┌──────────────────────┐
+│  4. Reverse Shell    │
+│                      │
+│ Interactive command  │
+│ session established  │
+└──────────┬───────────┘
+           │
+           ▼
+┌──────────────────────┐
+│  5. Post-Exploitation│
+│                      │
+│ Enumeration, access, │
+│ and further testing  │
+└──────────────────────┘
+```
+
+---
+
+## Reverse Shell Components
+
+A typical reverse-shell setup has two sides:
+
+```text
+┌─────────────────────┐          ┌─────────────────────┐
+│       TARGET        │          │      OPERATOR       │
+│                     │          │                     │
+│  Executes payload   │ ───────► │  Listener           │
+│                     │  Network │                     │
+│  Reverse connection │  session │  Receives shell     │
+└─────────────────────┘          └─────────────────────┘
+```
+
+## Common Reverse Shell Workflow
+
+In a controlled CTF or lab environment, the conceptual workflow is:
+
+```text
+┌──────────────┐
+│ Operator     │
+│              │
+│ Start        │
+│ Listener     │
+└──────┬───────┘
+       │
+       │ Waiting...
+       │
+       ▼
+┌──────────────┐
+│ Target       │
+│              │
+│ Code         │
+│ Execution    │
+└──────┬───────┘
+       │
+       │ Outbound connection
+       ▼
+┌──────────────┐
+│ Operator     │
+│              │
+│ Reverse      │
+│ Shell        │
+└──────────────┘
+```
+
+> **Key idea:** A reverse shell does not magically provide access by itself. Some form of code execution or equivalent access on the target is generally required to initiate the connection.
+
+---
+
+## Key Takeaway
+
+> **A reverse shell is essentially a "call-back" mechanism: the compromised target connects outward to the operator and provides a command interface over that connection.**
+
+In CTFs, the usual progression is:
+
+```text
+Initial Access
+      ↓
+Code Execution
+      ↓
+Reverse Connection
+      ↓
+Interactive Shell
+      ↓
+Enumeration
+      ↓
+Privilege Escalation / Further Objectives
+```
+
+> **Legal Notice:** Reverse shells provide remote command execution and should only be used against systems you own or are explicitly authorized to test. This reference is intended for CTFs, isolated labs, education, and authorized security assessments.
+
+
+
 > **LHOST:** `tun0` / Target Listener IP (Placeholder: `10.10.10.10`)  
 > **LPORT:** Target Listener Port (Placeholder: `4545`)  
 > *Ensure your listener is active before executing payloads.*
