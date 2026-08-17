@@ -2,6 +2,75 @@
 
 A comprehensive quick-reference guide covering SQL injection methodologies, database identification, schema enumeration, extraction techniques, and filter evasion for security assessments and lab environments.
 
+# SQL Injection (SQLi) — Quick Reference
+
+**SQL Injection (SQLi)** is a vulnerability that occurs when untrusted user input is incorporated into a SQL query without proper validation or parameterization. From an attacker's perspective, SQLi can sometimes allow manipulation of database queries, authentication logic, data retrieval, or other database operations.
+
+SQLi is commonly encountered in **CTFs, vulnerable applications, and authorized penetration tests**.
+
+---
+
+## What Is SQL Injection?
+
+```text
+                USER INPUT
+                    │
+                    ▼
+             ┌─────────────┐
+             │ Application │
+             └──────┬──────┘
+                    │
+                    │ Unsafe query construction
+                    ▼
+             ┌─────────────┐
+             │   Database  │
+             └──────┬──────┘
+                    │
+                    ▼
+              Query Result
+```
+
+Typical SQLi Attack Flow
+```text
+┌──────────────────────┐
+│ 1. Find Input Point  │
+│                      │
+│ Parameter / Form /   │
+│ Cookie / Header      │
+└──────────┬───────────┘
+           │
+           ▼
+┌──────────────────────┐
+│ 2. Test for SQLi     │
+│                      │
+│ Observe application  │
+│ response / errors    │
+└──────────┬───────────┘
+           │
+           ▼
+┌──────────────────────┐
+│ 3. Identify DBMS     │
+│                      │
+│ MySQL / MSSQL /      │
+│ PostgreSQL / etc.    │
+└──────────┬───────────┘
+           │
+           ▼
+┌──────────────────────┐
+│ 4. Enumerate         │
+│                      │
+│ Tables / Columns /   │
+│ Database information │
+└──────────┬───────────┘
+           │
+           ▼
+┌──────────────────────┐
+│ 5. Extract / Validate│
+│                      │
+│ Retrieve relevant    │
+│ data in the lab      │
+└──────────────────────┘
+```
 ---
 
 ## 1. DBMS Identification
