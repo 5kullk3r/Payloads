@@ -405,10 +405,12 @@ PHP Information / File Access
 
 ### Legal Disclaimer
 
-**Maintained & Owned by 5kullk3r**
+**Maintained & Curated by 5kullk3r**
 
-*This material is created exclusively for authorized Capture The Flag (CTF) challenges, educational & ethical purposes, and legal security auditing with explicit permission.*
+*This material is maintained and curated for authorized Capture The Flag (CTF) challenges, educational & ethical purposes, and legal security auditing with explicit permission.*
 
-<sub>Unauthorized system access is illegal. **5kullk3r** disclaims all liability for any misuse or damages.</sub>
+*Some content may have been collected or adapted from publicly available resources and/or third-party sources. No claim of original authorship or ownership is made over such material unless explicitly stated. Credit and attribution belong to the respective original authors or sources where applicable.*
+
+<sub>Unauthorized system access is illegal. **5kullk3r** does not claim ownership of third-party content and disclaims all liability for any misuse or damages.</sub>
 
 </div>
