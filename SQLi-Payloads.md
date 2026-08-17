@@ -292,3 +292,16 @@ When signature-based filters detect SQL keywords (`SELECT`, `UNION`, `ADMIN`):
 uNiOn sElEcT 1,2,3-- -
 SeLeCt * FrOm uSeRs;
 ```
+
+
+<div align="center">
+
+### Legal Disclaimer
+
+**Maintained & Owned by 5kullk3r**
+
+*This material is created exclusively for authorized Capture The Flag (CTF) challenges, educational & ethical purposes, and legal security auditing with explicit permission.*
+
+<sub>Unauthorized system access is illegal. **5kullk3r** disclaims all liability for any misuse or damages.</sub>
+
+</div>
